@@ -1,0 +1,5 @@
+const staircase = (n) => {
+    
+}
+
+staircase()
