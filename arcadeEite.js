@@ -47,3 +47,28 @@ Return value.
 350 would be the 4th ranked score, so a rank was added to the return array.
 180 was not in the range of leaderboard scores, so rank was not added to return array.
 */
+
+const arcadeElite = (currentTopScores, currentPlayerScores) => {
+    let rankings = []
+    for (const topScore of currentTopScores) {
+        currentPlayerScores.sort((first, second) => { return first - second })
+        for (const playerScore of currentPlayerScores) {
+            if (playerScore >= topScore) {
+                currentTopScores.push(playerScore)
+                currentTopScores.sort((first, second) => { return second - first })
+                currentTopScores.pop()
+                let index = currentPlayerScores.findIndex(num => num === playerScore)
+                currentPlayerScores.splice(index, 1)
+                let rank = currentTopScores.findIndex(num => num === playerScore)
+                rankings.push(rank + 1)
+            }
+        }
+    }
+    return rankings
+}
+
+const topScores = [490, 450, 400, 320, 320]
+const playerScores = [50, 310, 480, 200, 350, 180]
+
+const playerRankings = arcadeElite(topScores, playerScores)
+console.log(playerRankings)
