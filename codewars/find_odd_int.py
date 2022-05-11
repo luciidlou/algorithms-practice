@@ -9,7 +9,7 @@
 # [0,1,0,1,0] should return 0, because it occurs 3 times (which is odd).
 # [1,2,2,3,3,3,4,3,3,3,2,2,1] should return 4, because it appears 1 time (which is odd).
 
-EXAMPLE = [1,2,2,3,3,3,4,3,3,3,2,2,1]
+EXAMPLE = [10, 10, 10]
 
 def find_it(seq):
     """returns the int that appears an odd number of times"""
@@ -25,11 +25,15 @@ def find_it(seq):
                 counter += 1
             elif num1 != num2:
                 if counter == 0:
-                    return num1
+                    return _
+                if counter % 2 == 0:
+                    return _
                 counter = 0
         else:
             if counter == 0:
                 return _
+            if counter % 2 == 0:
+                    return _
             break
 
 
