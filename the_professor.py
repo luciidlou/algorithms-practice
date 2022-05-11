@@ -43,20 +43,25 @@ semester_two_grades = [58, 57, 59, 22, 57, 61, 72, 88, 87, 90, 91, 99, 97]
 
 def grade_adjuster(list_of_grades):
     new_grades = []
-    for num in list_of_grades:
-        if num >= 40:
-            if num % 5 == 4:
-                num += 1
-                new_grades.append(num)
-            elif num % 5 == 3:
-                num += 2
-                new_grades.append(num)
+    for grade in list_of_grades:
+        if grade >= 40:
+            if grade % 5 == 4:
+                grade += 1
+                new_grades.append(grade)
+            elif grade % 5 == 3:
+                grade += 2
+                new_grades.append(grade)
             else:
-                new_grades.append(num)
+                new_grades.append(grade)
         else:
-            new_grades.append(num)
+            new_grades.append(grade)
 
-    return new_grades
+    data = {
+        "grades_original": list_of_grades,
+        "grades_adjusted": new_grades
+    }
+
+    return data['grades_adjusted']
 
 
 adjusted_grades = grade_adjuster(semester_two_grades)
