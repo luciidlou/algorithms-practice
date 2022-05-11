@@ -11,11 +11,12 @@
 
 EXAMPLE = [10, 10, 10]
 
+
 def find_it(seq):
     """returns the int that appears an odd number of times"""
     counter = 0
     seq.sort()
-    for i, _ in enumerate(seq):
+    for i, number in enumerate(seq):
         if len(seq) == 1:
             return seq[0]
         if i != len(seq) - 1:
@@ -25,16 +26,22 @@ def find_it(seq):
                 counter += 1
             elif num1 != num2:
                 if counter == 0:
-                    return _
+                    return number
                 if counter % 2 == 0:
-                    return _
+                    return number
                 counter = 0
         else:
             if counter == 0:
-                return _
+                return number
             if counter % 2 == 0:
-                    return _
+                return number
             break
+
+def find_it2(seq):
+    """returns the int that appears an odd number of times"""
+    for i in seq:
+        if seq.count(i) % 2 != 0:
+            return i
 
 
 solution = find_it(EXAMPLE)
